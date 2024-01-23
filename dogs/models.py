@@ -4,6 +4,11 @@ from django.db import models
 NULLABLE = {'blank': True, 'null': True}
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Порода')
+    description = models.TextField(**NULLABLE)
+
+
 class Dog(models.Model):
     name = models.CharField(max_length=250, verbose_name='Кличка')
     category = models.CharField(max_length=100, verbose_name='Порода')
