@@ -1,5 +1,19 @@
 from django.shortcuts import render
 
+from dogs.models import Category
+
 
 def index(request):
-    return render(request, 'dogs/index.html')
+    context = {
+        'object_list': Category.objects.all()[:3],
+        'title': 'Питомник - Главная'
+    }
+    return render(request, 'dogs/index.html', context)
+
+
+def categories(request):
+    context = {
+        'object_list': Category.objects.all(),
+        'title': 'Питомник - все наши породы'
+    }
+    return render(request, 'dogs/categories.html', context)

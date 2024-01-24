@@ -1,7 +1,11 @@
-from  django.urls import path
+from django.urls import path
 
-from dogs.views import index
+from dogs.apps import DogsConfig
+from dogs.views import index, categories
+
+app_name = DogsConfig.name
 
 urlpatterns = [
-    path('', index)
+    path('', index, name='index'),
+    path('categories/', categories, name='categories'),
 ]
